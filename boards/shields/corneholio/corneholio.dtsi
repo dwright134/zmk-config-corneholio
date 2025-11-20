@@ -25,7 +25,7 @@
                 <&xiao_d 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
   };
 
-  transform: matrix_transform {
+  transform: transform {
     compatible = "zmk,matrix_transform";
     rows = <4>;
     columns = <12>;
@@ -48,7 +48,7 @@
         display-name = "Split Ortho 6x4";
 
         kscan = <&kscan>;
-        transform = <&matrix_transform>;
+        transform = <&transform>;
 
         keys  //                     w   h    x    y     rot    rx    ry
             = <&key_physical_attrs 100 100    0   37       0     0     0>
