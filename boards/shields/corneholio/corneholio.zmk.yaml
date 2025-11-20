@@ -1,0 +1,11 @@
+file_format: "1"
+id: corneholio
+name: Corneholio
+type: shield
+requires: [seeedstudio_xaio_ble]
+features:
+  - keys
+  - studio
+siblings:
+  - corneholio_left
+  - corneholio_right

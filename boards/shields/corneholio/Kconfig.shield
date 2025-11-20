@@ -1,0 +1,5 @@
+config SHIELD_CORNEHOLIO_LEFT
+  def_bool $(shields_list_contains, corneholio_left)
+
+config SHIELD_CORNEHOLIO_RIGHT
+  def_bool $(shields_list_contains, corneholio_right)
