@@ -95,7 +95,7 @@
             bindings = <
 &soft_off  &none      &none     &kp LA(LG(C))  &none          &bootloader  &bootloader     &none       &kp K_MUTE    &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &tog 1
 &killscrn  &scrlscrn  &lstscrn  &nwscrn        &none          &sys_reset   &sys_reset      &kp LEFT    &kp DOWN      &kp UP_ARROW       &kp RIGHT        &none
-&none      &none      &none     &none          &kp LS(LG(Z))                               &bt BT_NXT  &bt BT_SEL 0  &bt BT_SEL 1       &bt BT_SEL 2     &bt BT_SEL 3
+&bt BT_SEL 0      &none      &none     &none          &kp LS(LG(Z))                               &bt BT_NXT  &bt BT_SEL 0  &bt BT_SEL 1       &bt BT_SEL 2     &bt BT_SEL 3
                                 &trans         &trans         &trans       &studio_unlock  &trans      &trans
             >;
         };
