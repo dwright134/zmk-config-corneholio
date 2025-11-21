@@ -1,11 +1,1 @@
-if SHIELD_CORNEHOLIO_LEFT
-    config ZMK_KEYBOARD_NAME
-        default "Corneholio"
-    config ZMK_SPLIT_ROLE_CENTRAL
-        default y
-endif
 
-if SHIELD_CORNEHOLIO_LEFT || SHIELD_CORNEHOLIO_RIGHT
-    config ZMK_SPLIT
-        default y
-endif
