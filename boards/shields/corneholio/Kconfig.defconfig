@@ -3,15 +3,9 @@ if SHIELD_CORNEHOLIO_LEFT
     default "Corneholio"
   config ZMK_SPLIT_ROLE_CENTRAL
     default y
-  config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY
-    default y
-  config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
-    default y
 endif
 
 if SHIELD_CORNEHOLIO_LEFT || SHIELD_CORNEHOLIO_RIGHT
   config ZMK_SPLIT
-    default y
-  config ZMK_SPLIT_BLE
     default y
 endif

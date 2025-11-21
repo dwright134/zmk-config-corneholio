@@ -1,9 +1,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/outputs.h>
-#include <dt-bindings/zmk/ext_power.h>
-#include <dt-bindings/zmk/reset.h>
 
 &soft_off {
     hold-time-ms = <5000>;
@@ -73,16 +70,16 @@
 
         raise {
             bindings = <
-&kp F1        &kp F2        &kp F3         &kp F4        &kp F5     &kp F6  &kp F7  &kp F8        &kp F9     &kp F10           &kp F11     &kp F12
-&kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3   &kp NUMBER_4  &kp N5     &none   &none   &kp NUMBER_6  &kp N7     &kp N8            &kp N9      &kp N0
-&none         &kp COMMA     &kp LESS_THAN  &kp MINUS     &kp ASTRK                  &kp PLUS      &kp EQUAL  &kp GREATER_THAN  &kp PERIOD  &trans
-                                           &trans        &trans     &trans  &trans  &trans        &trans
+&kp F1        &kp F2        &kp F3         &kp F4        &kp F5     &kp F6    &kp F7     &kp F8        &kp F9     &kp F10           &kp F11     &kp F12
+&kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3   &kp NUMBER_4  &kp N5     &kp LEFT  &kp RIGHT  &kp NUMBER_6  &kp N7     &kp N8            &kp N9      &kp N0
+&none         &kp COMMA     &kp LESS_THAN  &kp MINUS     &kp ASTRK                       &kp PLUS      &kp EQUAL  &kp GREATER_THAN  &kp PERIOD  &trans
+                                           &trans        &trans     &trans    &trans     &trans        &trans
             >;
         };
 
         lower {
             bindings = <
-&kp TAB    &none          &none             &none          &none                 &none           &none            &none                  &none             &none              &none      &none
+&kp EXCL   &kp AT         &kp HASH          &kp DOLLAR     &kp PERCENT           &none           &none            &kp CARET              &kp AMPS          &kp STAR           &none      &none
 &kp SLASH  &kp BACKSLASH  &kp SEMI          &kp LESS_THAN  &kp LEFT_PARENTHESIS  &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp RIGHT_PARENTHESIS  &kp GREATER_THAN  &kp COLON          &kp PIPE   &kp QUESTION
 &none      &kp GRAVE      &kp SINGLE_QUOTE  &kp MINUS      &kp UNDER                                              &kp PLUS               &kp EQUAL         &kp DOUBLE_QUOTES  &kp TILDE  &kp DEL
                                             &trans         &trans                &trans          &trans           &trans                 &trans
@@ -97,6 +94,32 @@
                                 &trans         &trans         &trans  &studio_unlock  &trans      &trans
             >;
         };
+
+        secret {
+            bindings = <
+&none  &none  &none  &none  &none  &none  &none  &none  &none       &none  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none       &none  &none  &none
+&none  &none  &none  &none  &none                &none  &bt BT_CLR  &none  &none  &none
+                     &none  &none  &none  &none  &none  &none
+            >;
+        };
+
+        reserve_2 {
+            bindings = <
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none                &none  &none  &none  &none  &none
+                     &none  &none  &none  &none  &none  &none
+            >;
+        };
     };
 
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        secret_layer {
+            if-layers = <3 4>;
+            then-layer = <5>;
+        };
+    };
 };
