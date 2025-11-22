@@ -1,6 +1,10 @@
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  // default: 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
 
 &soft_off {
     hold-time-ms = <5000>;
@@ -109,7 +113,7 @@
             bindings = <
 &kp B              &kp L                &kp D            &kp C            &kp V      &kp LC(LEFT_ALT)  &kp RC(RIGHT_ALT)  &kp J            &kp Y             &kp O             &kp U                 &none
 &hrm LEFT_SHIFT N  &hrm LEFT_CONTROL R  &hrm LEFT_ALT T  &hrm LEFT_GUI S  &kp G      &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp P            &hrm RIGHT_GUI H  &hrm RIGHT_ALT A  &hrm RIGHT_CONTROL E  &hrm RIGHT_SHIFT I
-&kp X              &kp Q                &kp M            &kp W            &kp Z                                           &kp K            &kp F             &kp COMMA         &kp DOT               &none
+&kp X              &kp Q                &lt 6 M          &kp W            &kp Z                                           &kp K            &kp F             &kp COMMA         &kp DOT               &none
                                                          &lt 4 ESC        &lt 3 TAB  &kp ENTER         &kp SPACE          &lt 2 BACKSPACE  &mo 4
             >;
         };
@@ -143,28 +147,28 @@
 
         function {
             bindings = <
-&none      &none      &none     &kp LA(LG(C))  &none          &none   &none   &none     &kp K_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &none
-&killscrn  &scrlscrn  &lstscrn  &nwscrn        &none          &none   &none   &kp LEFT  &kp DOWN    &kp UP_ARROW       &kp RIGHT        &none
-&none      &none      &none     &none          &kp LS(LG(Z))                  &none     &none       &none              &none            &none
+&none      &none      &none     &kp LA(LG(C))  &none          &none   &none   &none     &none     &kp PAGE_UP    &none      &kp PSCRN
+&killscrn  &scrlscrn  &lstscrn  &nwscrn        &none          &none   &none   &kp LEFT  &kp DOWN  &kp UP_ARROW   &kp RIGHT  &none
+&none      &none      &none     &none          &kp LS(LG(Z))                  &none     &kp HOME  &kp PAGE_DOWN  &kp END    &none
                                 &trans         &trans         &trans  &trans  &trans    &trans
             >;
         };
 
         system {
             bindings = <
-&none  &none  &none  &none  &none  &none  &none  &none       &none       &none         &none         &tog 1
-&none  &none  &none  &none  &none  &none  &none  &none       &none       &none         &none         &soft_off
-&none  &none  &none  &none  &none                &bt BT_CLR  &bt BT_NXT  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2
+&none  &none  &none  &none  &none  &none  &none  &none       &kp K_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &tog 1
+&none  &none  &none  &none  &none  &none  &none  &none       &none       &none              &none            &soft_off
+&none  &none  &none  &none  &none                &bt BT_CLR  &bt BT_NXT  &bt BT_SEL 0       &bt BT_SEL 1     &bt BT_SEL 2
                      &none  &none  &none  &none  &none       &none
             >;
         };
 
-        extra_1 {
+        mouse {
             bindings = <
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none                &none  &none  &none  &none  &none
-                     &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none      &none      &none           &none           &msc SCRL_UP    &none            &none
+&none  &none  &none  &none  &none  &none      &none      &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP    &mmv MOVE_RIGHT  &none
+&none  &none  &none  &none  &none                        &none           &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &none
+                     &none  &none  &mkp LCLK  &mkp RCLK  &mkp MCLK       &none
             >;
         };
 
