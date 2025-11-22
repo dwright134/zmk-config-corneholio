@@ -64,19 +64,41 @@
     combos {
         compatible = "zmk,combos";
 
-        tab {
-            bindings = <&kp TAB>;
-            key-positions = <0 1>;
-        };
-
         caps_word {
             bindings = <&caps_word>;
-            key-positions = <12 13>;
+            key-positions = <13 15>;
+            require-prior-idle-ms = <280>;
+            layers = <0 1>;
         };
 
         stdio_unlock {
             bindings = <&studio_unlock>;
             key-positions = <36 37>;
+        };
+
+        lkb_bootloader {
+            bindings = <&bootloader>;
+            key-positions = <5 17>;
+        };
+
+        rkb_bootloader {
+            bindings = <&bootloader>;
+            key-positions = <6 18>;
+        };
+    };
+
+    behaviors {
+        hrm: home_row_mod {
+            compatible = "zmk,behavior-hold-tap";
+            label = "Home Row Mod";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <100>;
+            flavor = "balanced";
+            hold-trigger-on-release;
         };
     };
 
@@ -85,28 +107,28 @@
 
         base {
             bindings = <
-&kp B             &kp L               &kp D           &kp C           &kp V      &kp LC(LEFT_ALT)  &kp RC(RIGHT_ALT)  &kp J            &kp Y            &kp O            &kp U                &none
-&mt LEFT_SHIFT N  &mt LEFT_CONTROL R  &mt LEFT_ALT T  &mt LEFT_GUI S  &kp G      &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp P            &mt RIGHT_GUI H  &mt RIGHT_ALT A  &mt RIGHT_CONTROL E  &mt RIGHT_SHIFT I
-&kp X             &kp Q               &kp M           &kp W           &kp Z                                           &kp K            &kp F            &kp COMMA        &kp DOT              &none
-                                                      &lt 4 ESC       &lt 3 TAB  &kp ENTER         &kp SPACE          &lt 2 BACKSPACE  &mo 4
+&kp B              &kp L                &kp D            &kp C            &kp V      &kp LC(LEFT_ALT)  &kp RC(RIGHT_ALT)  &kp J            &kp Y             &kp O             &kp U                 &none
+&hrm LEFT_SHIFT N  &hrm LEFT_CONTROL R  &hrm LEFT_ALT T  &hrm LEFT_GUI S  &kp G      &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp P            &hrm RIGHT_GUI H  &hrm RIGHT_ALT A  &hrm RIGHT_CONTROL E  &hrm RIGHT_SHIFT I
+&kp X              &kp Q                &kp M            &kp W            &kp Z                                           &kp K            &kp F             &kp COMMA         &kp DOT               &none
+                                                         &lt 4 ESC        &lt 3 TAB  &kp ENTER         &kp SPACE          &lt 2 BACKSPACE  &mo 4
             >;
         };
 
         qwerty {
             bindings = <
-&kp Q             &kp W               &kp E           &kp R         &kp T      &kp LC(LEFT_ALT)  &kp RC(RIGHT_ALT)  &kp Y            &kp U            &kp I            &kp O                &kp P
-&mt LEFT_SHIFT A  &mt LEFT_CONTROL S  &mt LEFT_ALT D  &mt LGUI F    &kp G      &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp H            &mt RIGHT_GUI J  &mt RIGHT_ALT K  &mt RIGHT_CONTROL L  &kp RIGHT_SHIFT
-&kp Z             &kp X               &kp C           &kp V         &kp B                                           &kp N            &kp M            &kp COMMA        &kp DOT              &none
-                                                      &lt 4 ESCAPE  &lt 3 TAB  &kp ENTER         &kp SPACE          &lt 2 BACKSPACE  &mo 4
+&kp Q              &kp W                &kp E            &kp R         &kp T      &kp LC(LEFT_ALT)  &kp RC(RIGHT_ALT)  &kp Y            &kp U             &kp I             &kp O                 &kp P
+&hrm LEFT_SHIFT A  &hrm LEFT_CONTROL S  &hrm LEFT_ALT D  &hrm LGUI F   &kp G      &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp H            &hrm RIGHT_GUI J  &hrm RIGHT_ALT K  &hrm RIGHT_CONTROL L  &kp RIGHT_SHIFT
+&kp Z              &kp X                &kp C            &kp V         &kp B                                           &kp N            &kp M             &kp COMMA         &kp DOT               &none
+                                                         &lt 4 ESCAPE  &lt 3 TAB  &kp ENTER         &kp SPACE          &lt 2 BACKSPACE  &mo 4
             >;
         };
 
         raise {
             bindings = <
-&kp F1        &kp F2        &kp F3         &kp F4        &kp F5     &kp F6    &kp F7     &kp F8        &kp F9     &kp F10           &kp F11     &kp F12
-&kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3   &kp NUMBER_4  &kp N5     &kp LEFT  &kp RIGHT  &kp NUMBER_6  &kp N7     &kp N8            &kp N9      &kp N0
-&none         &kp COMMA     &kp LESS_THAN  &kp MINUS     &kp ASTRK                       &kp PLUS      &kp EQUAL  &kp GREATER_THAN  &kp PERIOD  &trans
-                                           &trans        &trans     &trans    &trans     &trans        &trans
+&kp F1        &kp F2         &kp F3            &kp F4        &kp F5     &kp F6    &kp F7     &kp F8        &kp F9     &kp F10    &kp F11     &kp F12
+&kp NUMBER_1  &kp NUMBER_2   &kp NUMBER_3      &kp NUMBER_4  &kp N5     &kp LEFT  &kp RIGHT  &kp NUMBER_6  &kp N7     &kp N8     &kp N9      &kp N0
+&none         &kp LESS_THAN  &kp GREATER_THAN  &kp MINUS     &kp ASTRK                       &kp PLUS      &kp EQUAL  &kp COMMA  &kp PERIOD  &none
+                                               &trans        &trans     &trans    &trans     &trans        &trans
             >;
         };
 
@@ -121,23 +143,32 @@
 
         function {
             bindings = <
-&soft_off  &none      &none     &kp LA(LG(C))  &none          &none   &none   &none     &kp K_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &tog 1
+&none      &none      &none     &kp LA(LG(C))  &none          &none   &none   &none     &kp K_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &none
 &killscrn  &scrlscrn  &lstscrn  &nwscrn        &none          &none   &none   &kp LEFT  &kp DOWN    &kp UP_ARROW       &kp RIGHT        &none
 &none      &none      &none     &none          &kp LS(LG(Z))                  &none     &none       &none              &none            &none
                                 &trans         &trans         &trans  &trans  &trans    &trans
             >;
         };
 
-        secret {
+        system {
             bindings = <
-&none  &none  &none  &none  &none  &none  &none  &none       &none       &none         &none         &none
-&none  &none  &none  &none  &none  &none  &none  &none       &none       &none         &none         &none
+&none  &none  &none  &none  &none  &none  &none  &none       &none       &none         &none         &tog 1
+&none  &none  &none  &none  &none  &none  &none  &none       &none       &none         &none         &soft_off
 &none  &none  &none  &none  &none                &bt BT_CLR  &bt BT_NXT  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2
                      &none  &none  &none  &none  &none       &none
             >;
         };
 
-        reserve_2 {
+        extra_1 {
+            bindings = <
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none                &none  &none  &none  &none  &none
+                     &none  &none  &none  &none  &none  &none
+            >;
+        };
+
+        extra_2 {
             bindings = <
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
