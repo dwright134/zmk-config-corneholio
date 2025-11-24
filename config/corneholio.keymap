@@ -36,7 +36,11 @@
         lstscrn: lstscrn {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A)>, <&macro_tap>, <&kp COLON>;
+            bindings =
+                <&macro_tap>,
+                <&kp LC(A)>,
+                <&macro_tap>,
+                <&kp DOUBLE_QUOTES>;
 
             label = "LSTSCRN";
         };
