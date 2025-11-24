@@ -101,7 +101,7 @@
 
         base {
             bindings = <
-&kp B              &kp L                &kp D            &kp C            &kp V      &kp LC(LEFT_ALT)  &kp RC(RIGHT_ALT)  &kp J            &kp Y             &kp O             &kp U                 &none
+&kp B              &kp L                &kp D            &kp C            &kp V      &kp LC(LEFT_ALT)  &kp RC(RIGHT_ALT)  &kp J            &kp Y             &kp O             &kp U                 &kp SQT
 &hrm LEFT_SHIFT N  &hrm LEFT_CONTROL R  &hrm LEFT_ALT T  &hrm LEFT_GUI S  &kp G      &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp P            &hrm RIGHT_GUI H  &hrm RIGHT_ALT A  &hrm RIGHT_CONTROL E  &hrm RIGHT_SHIFT I
 &kp X              &kp Q                &lt 6 M          &kp W            &kp Z                                           &kp K            &kp F             &kp COMMA         &kp DOT               &none
                                                          &lt 4 ESC        &lt 3 TAB  &kp ENTER         &kp SPACE          &lt 2 BACKSPACE  &mo 4
@@ -128,19 +128,19 @@
 
         lower {
             bindings = <
-&kp EXCL   &kp AT         &kp HASH          &kp DOLLAR     &kp PERCENT           &none           &none            &kp CARET              &kp AMPS          &kp STAR           &none      &none
-&kp SLASH  &kp BACKSLASH  &kp SEMI          &kp LESS_THAN  &kp LEFT_PARENTHESIS  &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp RIGHT_PARENTHESIS  &kp GREATER_THAN  &kp COLON          &kp PIPE   &kp QUESTION
-&none      &kp GRAVE      &kp SINGLE_QUOTE  &kp MINUS      &kp UNDER                                              &kp PLUS               &kp EQUAL         &kp DOUBLE_QUOTES  &kp TILDE  &none
-                                            &trans         &trans                &trans          &trans           &kp DEL                &trans
+&kp EXCL   &kp AT         &kp HASH  &kp DOLLAR     &kp PERCENT           &none           &none            &kp CARET              &kp AMPS          &kp STAR   &none       &none
+&kp SLASH  &kp BACKSLASH  &kp SEMI  &kp LESS_THAN  &kp LEFT_PARENTHESIS  &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp RIGHT_PARENTHESIS  &kp GREATER_THAN  &kp COLON  &kp PIPE    &kp QUESTION
+&kp GRAVE  &none          &none     &kp MINUS      &kp UNDER                                              &kp PLUS               &kp EQUAL         &kp COMMA  &kp PERIOD  &kp TILDE
+                                    &trans         &trans                &trans          &trans           &kp DEL                &trans
             >;
         };
 
         function {
             bindings = <
-&none      &none      &none     &kp LA(LG(C))  &none          &none   &none   &none     &none     &kp PAGE_UP    &none      &kp PSCRN
-&killscrn  &scrlscrn  &lstscrn  &nwscrn        &none          &none   &none   &kp LEFT  &kp DOWN  &kp UP_ARROW   &kp RIGHT  &none
-&none      &none      &none     &none          &kp LS(LG(Z))                  &none     &kp HOME  &kp PAGE_DOWN  &kp END    &none
-                                &trans         &trans         &trans  &trans  &trans    &trans
+&none      &none      &none     &kp LA(LG(C))  &none          &none             &none              &none     &none     &kp PAGE_UP    &none      &kp PSCRN
+&killscrn  &scrlscrn  &lstscrn  &nwscrn        &none          &kp C_AC_ZOOM_IN  &kp C_AC_ZOOM_OUT  &kp LEFT  &kp DOWN  &kp UP_ARROW   &kp RIGHT  &none
+&none      &none      &none     &none          &kp LS(LG(Z))                                       &none     &kp HOME  &kp PAGE_DOWN  &kp END    &none
+                                &trans         &trans         &trans            &trans             &trans    &trans
             >;
         };
 
