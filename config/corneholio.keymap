@@ -87,27 +87,27 @@
     };
 
     behaviors {
-        hml: left_home_row_mod {
+        hml: hml {
             compatible = "zmk,behavior-hold-tap";
             label = "Left Home Row Mod";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <220>;
-            quick-tap-ms = <100>;
+            tapping-term-ms = <250>;
+            quick-tap-ms = <125>;
             require-prior-idle-ms = <0>;
             flavor = "hold-preferred";
         };
 
-        hmr: right_home_row_mod {
+        hmr: hmr {
             compatible = "zmk,behavior-hold-tap";
             label = "Right Home Row Mod";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <220>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <75>;
+            tapping-term-ms = <230>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <100>;
             flavor = "balanced";
             hold-trigger-on-release;
             hold-trigger-key-positions = <28 16 4 3 2 1 0 12 13 15 14 24 25 26 27 34 35 38 39 37 36>;
