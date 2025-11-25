@@ -1,6 +1,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 
 &soft_off {
@@ -92,12 +93,10 @@
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <125>;
-            flavor = "balanced";
-            hold-trigger-on-release;
-            hold-trigger-key-positions = <6 18 19 7 29 30 20 8 9 21 31 32 22 10 11 23 33 37 38 39 34 35 36>;
+            tapping-term-ms = <220>;
+            quick-tap-ms = <100>;
+            require-prior-idle-ms = <0>;
+            flavor = "hold-preferred";
         };
 
         hmr: right_home_row_mod {
@@ -106,9 +105,9 @@
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <280>;
+            tapping-term-ms = <220>;
             quick-tap-ms = <175>;
-            require-prior-idle-ms = <125>;
+            require-prior-idle-ms = <75>;
             flavor = "balanced";
             hold-trigger-on-release;
             hold-trigger-key-positions = <28 16 4 3 2 1 0 12 13 15 14 24 25 26 27 34 35 38 39 37 36>;
@@ -165,10 +164,10 @@
 
         system {
             bindings = <
-&none  &none  &none  &none  &none  &none  &none  &none       &kp K_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &tog 1
-&none  &none  &none  &none  &none  &none  &none  &none       &none       &none              &none            &soft_off
-&none  &none  &none  &none  &none                &bt BT_CLR  &bt BT_NXT  &bt BT_SEL 0       &bt BT_SEL 1     &bt BT_SEL 2
-                     &none  &none  &none  &none  &none       &none
+&none  &none  &none  &none  &none  &none  &none  &none         &kp K_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &tog 1
+&none  &none  &none  &none  &none  &none  &none  &none         &none       &none              &none            &soft_off
+&none  &none  &none  &none  &none                &out OUT_TOG  &bt BT_CLR  &bt BT_SEL 0       &bt BT_SEL 1     &bt BT_SEL 2
+                     &none  &none  &none  &none  &none         &none
             >;
         };
 
