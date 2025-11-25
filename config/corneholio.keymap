@@ -11,16 +11,16 @@
 
 &mt {
     flavor = "tap-preferred";
-    tapping-term-ms = <225>;
+    tapping-term-ms = <200>;
     quick-tap-ms = <175>;
     require-prior-idle-ms = <100>;
 };
 
 &lt {
-    tapping-term-ms = <220>;
+    tapping-term-ms = <200>;
     quick-tap-ms = <175>;
     require-prior-idle-ms = <100>;
-    flavor = "balanced";
+    flavor = "tap-preferred";
 };
 
 / {
@@ -86,17 +86,32 @@
     };
 
     behaviors {
-        hrm: home_row_mod {
+        hml: left_home_row_mod {
             compatible = "zmk,behavior-hold-tap";
-            label = "Home Row Mod";
+            label = "Left Home Row Mod";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
-            require-prior-idle-ms = <100>;
+            require-prior-idle-ms = <125>;
             flavor = "balanced";
             hold-trigger-on-release;
+            hold-trigger-key-positions = <6 18 19 7 29 30 20 8 9 21 31 32 22 10 11 23 33 37 38 39 34 35 36>;
+        };
+
+        hmr: right_home_row_mod {
+            compatible = "zmk,behavior-hold-tap";
+            label = "Right Home Row Mod";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <125>;
+            flavor = "balanced";
+            hold-trigger-on-release;
+            hold-trigger-key-positions = <28 16 4 3 2 1 0 12 13 15 14 24 25 26 27 34 35 38 39 37 36>;
         };
     };
 
@@ -106,7 +121,7 @@
         base {
             bindings = <
 &kp B              &kp L                &kp D            &kp C            &kp V      &kp LC(LEFT_ALT)  &kp RC(RIGHT_ALT)  &kp J            &kp Y             &kp O             &kp U                 &kp SQT
-&hrm LEFT_SHIFT N  &hrm LEFT_CONTROL R  &hrm LEFT_ALT T  &hrm LEFT_GUI S  &kp G      &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp P            &hrm RIGHT_GUI H  &hrm RIGHT_ALT A  &hrm RIGHT_CONTROL E  &hrm RIGHT_SHIFT I
+&hml LEFT_SHIFT N  &hml LEFT_CONTROL R  &hml LEFT_ALT T  &hml LEFT_GUI S  &kp G      &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp P            &hmr RIGHT_GUI H  &hmr RIGHT_ALT A  &hmr RIGHT_CONTROL E  &hmr RIGHT_SHIFT I
 &kp X              &kp Q                &lt 6 M          &kp W            &kp Z                                           &kp K            &kp F             &kp COMMA         &kp DOT               &none
                                                          &lt 4 ESC        &lt 3 TAB  &kp ENTER         &kp SPACE          &lt 2 BACKSPACE  &mo 4
             >;
@@ -115,7 +130,7 @@
         qwerty {
             bindings = <
 &kp Q              &kp W                &kp E            &kp R         &kp T      &kp LC(LEFT_ALT)  &kp RC(RIGHT_ALT)  &kp Y            &kp U             &kp I             &kp O                 &kp P
-&hrm LEFT_SHIFT A  &hrm LEFT_CONTROL S  &hrm LEFT_ALT D  &hrm LGUI F   &kp G      &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp H            &hrm RIGHT_GUI J  &hrm RIGHT_ALT K  &hrm RIGHT_CONTROL L  &kp RIGHT_SHIFT
+&hml LEFT_SHIFT A  &hml LEFT_CONTROL S  &hml LEFT_ALT D  &hml LGUI F   &kp G      &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp H            &hmr RIGHT_GUI J  &hmr RIGHT_ALT K  &hmr RIGHT_CONTROL L  &kp RIGHT_SHIFT
 &kp Z              &kp X                &kp C            &kp V         &kp B                                           &kp N            &kp M             &kp COMMA         &kp DOT               &none
                                                          &lt 4 ESCAPE  &lt 3 TAB  &kp ENTER         &kp SPACE          &lt 2 BACKSPACE  &mo 4
             >;
