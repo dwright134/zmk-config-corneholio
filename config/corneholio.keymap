@@ -65,6 +65,27 @@
 
             label = "KILLSCRN";
         };
+
+        prntscrn: prntscrn {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(LG(NUMBER_4))>;
+            label = "PRNTSCRN";
+        };
+
+        zoomin: zoomin {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LG(EQUAL)>;
+            label = "ZOOMIN";
+        };
+
+        zoomout: zoomout {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LG(MINUS)>;
+            label = "ZOOMOUT";
+        };
     };
 
     combos {
@@ -83,6 +104,11 @@
         rkb_bootloader {
             bindings = <&bootloader>;
             key-positions = <6 18>;
+        };
+
+        clipboard {
+            bindings = <&kp LA(LG(C))>;
+            key-positions = <3 2>;
         };
     };
 
@@ -119,9 +145,9 @@
     keymap {
         compatible = "zmk,keymap";
 
-        base {
+        gallium {
             bindings = <
-&kp B              &kp L                &kp D            &kp C            &kp V      &kp LC(LEFT_ALT)  &kp RC(RIGHT_ALT)  &kp J            &kp Y             &kp O             &kp U                 &kp SQT
+&kp B              &kp L                &kp D            &kp C            &kp V      &none             &none              &kp J            &kp Y             &kp O             &kp U                 &kp SQT
 &hml LEFT_SHIFT N  &hml LEFT_CONTROL R  &hml LEFT_ALT T  &hml LEFT_GUI S  &kp G      &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp P            &hmr RIGHT_GUI H  &hmr RIGHT_ALT A  &hmr RIGHT_CONTROL E  &hmr RIGHT_SHIFT I
 &kp X              &kp Q                &lt 6 M          &kp W            &kp Z                                           &kp K            &kp F             &kp COMMA         &kp DOT               &none
                                                          &lt 4 ESC        &lt 3 TAB  &kp ENTER         &kp SPACE          &lt 2 BACKSPACE  &mo 4
@@ -130,23 +156,23 @@
 
         qwerty {
             bindings = <
-&kp Q              &kp W                &kp E            &kp R         &kp T      &kp LC(LEFT_ALT)  &kp RC(RIGHT_ALT)  &kp Y            &kp U             &kp I             &kp O                 &kp P
+&kp Q              &kp W                &kp E            &kp R         &kp T      &none             &none              &kp Y            &kp U             &kp I             &kp O                 &kp P
 &hml LEFT_SHIFT A  &hml LEFT_CONTROL S  &hml LEFT_ALT D  &hml LGUI F   &kp G      &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp H            &hmr RIGHT_GUI J  &hmr RIGHT_ALT K  &hmr RIGHT_CONTROL L  &kp RIGHT_SHIFT
 &kp Z              &kp X                &kp C            &kp V         &kp B                                           &kp N            &kp M             &kp COMMA         &kp DOT               &none
                                                          &lt 4 ESCAPE  &lt 3 TAB  &kp ENTER         &kp SPACE          &lt 2 BACKSPACE  &mo 4
             >;
         };
 
-        raise {
+        numbers {
             bindings = <
 &kp F1        &kp F2         &kp F3            &kp F4        &kp F5     &kp F6    &kp F7     &kp F8        &kp F9     &kp F10    &kp F11     &kp F12
 &kp NUMBER_1  &kp NUMBER_2   &kp NUMBER_3      &kp NUMBER_4  &kp N5     &kp LEFT  &kp RIGHT  &kp NUMBER_6  &kp N7     &kp N8     &kp N9      &kp N0
-&none         &kp LESS_THAN  &kp GREATER_THAN  &kp MINUS     &kp ASTRK                       &kp PLUS      &kp EQUAL  &kp COMMA  &kp PERIOD  &none
+&kp SLASH     &kp LESS_THAN  &kp GREATER_THAN  &kp MINUS     &kp ASTRK                       &kp PLUS      &kp EQUAL  &kp COMMA  &kp PERIOD  &none
                                                &trans        &trans     &trans    &trans     &trans        &trans
             >;
         };
 
-        lower {
+        symbols {
             bindings = <
 &kp EXCL   &kp AT         &kp HASH  &kp DOLLAR     &kp PERCENT           &none           &none            &kp CARET              &kp AMPS          &kp STAR   &none       &none
 &kp SLASH  &kp BACKSLASH  &kp SEMI  &kp LESS_THAN  &kp LEFT_PARENTHESIS  &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp RIGHT_PARENTHESIS  &kp GREATER_THAN  &kp COLON  &kp PIPE    &kp QUESTION
@@ -155,12 +181,12 @@
             >;
         };
 
-        function {
+        funct_nav {
             bindings = <
-&none      &none      &none     &kp LA(LG(C))  &none          &none          &none         &none     &none     &kp PAGE_UP    &none      &kp PSCRN
-&killscrn  &scrlscrn  &lstscrn  &nwscrn        &none          &kp LG(MINUS)  &kp LG(EQUAL)  &kp LEFT  &kp DOWN  &kp UP_ARROW   &kp RIGHT  &none
-&none      &none      &none     &none          &kp LS(LG(Z))                               &none     &kp HOME  &kp PAGE_DOWN  &kp END    &none
-                                &trans         &trans         &trans         &trans        &trans    &trans
+&none      &none      &none     &none    &none      &none     &none    &none     &none     &kp PAGE_UP    &none      &none
+&killscrn  &scrlscrn  &lstscrn  &nwscrn  &prntscrn  &zoomout  &zoomin  &kp LEFT  &kp DOWN  &kp UP_ARROW   &kp RIGHT  &none
+&none      &none      &none     &none    &none                         &none     &kp HOME  &kp PAGE_DOWN  &kp END    &none
+                                &trans   &trans     &trans    &trans   &trans    &trans
             >;
         };
 
