@@ -29,9 +29,19 @@
         nwscrn: nwscrn {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A)>, <&macro_tap>, <&kp C>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_CONTROL>,
+                <&macro_tap>,
+                <&kp A>,
+                <&macro_release>,
+                <&kp LEFT_CONTROL>,
+                <&macro_tap>,
+                <&kp C>;
 
             label = "NWSCRN";
+            wait-ms = <80>;
+            tap-ms = <5>;
         };
 
         lstscrn: lstscrn {
