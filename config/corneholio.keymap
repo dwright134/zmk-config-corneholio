@@ -48,32 +48,54 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
+                <&macro_press>,
+                <&kp LEFT_CONTROL>,
                 <&macro_tap>,
-                <&kp LC(A)>,
+                <&kp A>,
+                <&macro_release>,
+                <&kp LEFT_CONTROL>,
                 <&macro_tap>,
                 <&kp DOUBLE_QUOTES>;
 
             label = "LSTSCRN";
+            wait-ms = <80>;
+            tap-ms = <5>;
         };
 
         scrlscrn: scrlscrn {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
+                <&macro_press>,
+                <&kp LEFT_CONTROL>,
                 <&macro_tap>,
-                <&kp LC(C)>,
+                <&kp A>,
+                <&macro_release>,
+                <&kp LEFT_CONTROL>,
                 <&macro_tap>,
                 <&kp LEFT_BRACKET>;
 
             label = "SCRLSCRN";
+            wait-ms = <80>;
+            tap-ms = <5>;
         };
 
         killscrn: killscrn {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A)>, <&macro_tap>, <&kp K>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_CONTROL>,
+                <&macro_tap>,
+                <&kp A>,
+                <&macro_release>,
+                <&kp LEFT_CONTROL>,
+                <&macro_press>,
+                <&kp K>;
 
             label = "KILLSCRN";
+            wait-ms = <80>;
+            tap-ms = <5>;
         };
 
         prntscrn: prntscrn {
@@ -193,10 +215,10 @@
 
         funct_nav {
             bindings = <
-&none      &none      &none     &none    &none      &none     &none    &none     &none     &kp PAGE_UP    &none      &none
-&killscrn  &scrlscrn  &lstscrn  &nwscrn  &prntscrn  &zoomout  &zoomin  &kp LEFT  &kp DOWN  &kp UP_ARROW   &kp RIGHT  &none
-&none      &none      &none     &none    &none                         &none     &kp HOME  &kp PAGE_DOWN  &kp END    &none
-                                &trans   &trans     &trans    &trans   &trans    &trans
+&none      &none      &none     &none    &none            &none     &none    &none     &none     &kp PAGE_UP    &none      &none
+&killscrn  &scrlscrn  &lstscrn  &nwscrn  &kp PRINTSCREEN  &zoomout  &zoomin  &kp LEFT  &kp DOWN  &kp UP_ARROW   &kp RIGHT  &none
+&none      &none      &none     &none    &none                               &none     &kp HOME  &kp PAGE_DOWN  &kp END    &none
+                                &trans   &trans           &trans    &trans   &trans    &trans
             >;
         };
 
