@@ -90,7 +90,7 @@
                 <&kp A>,
                 <&macro_release>,
                 <&kp LEFT_CONTROL>,
-                <&macro_press>,
+                <&macro_tap>,
                 <&kp K>;
 
             label = "KILLSCRN";
