@@ -183,8 +183,8 @@
             bindings = <
 &kp B              &kp L                &kp D            &kp C            &kp V      &none             &none              &kp J            &kp Y             &kp O             &kp U                 &kp SQT
 &hml LEFT_SHIFT N  &hml LEFT_CONTROL R  &hml LEFT_ALT T  &hml LEFT_GUI S  &kp G      &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp P            &hmr RIGHT_GUI H  &hmr RIGHT_ALT A  &hmr RIGHT_CONTROL E  &hmr RIGHT_SHIFT I
-&kp X              &kp Q                &lt 6 M          &kp W            &kp Z                                           &kp K            &kp F             &kp COMMA         &kp DOT               &none
-                                                         &lt 4 ESC        &lt 3 TAB  &kp ENTER         &kp SPACE          &lt 2 BACKSPACE  &mo 4
+&kp X              &kp Q                &lt 7 M          &kp W            &kp Z                                           &kp K            &kp F             &kp COMMA         &kp DOT               &none
+                                                         &lt 5 ESC        &lt 4 TAB  &kp ENTER         &kp SPACE          &lt 3 BACKSPACE  &mo 5
             >;
         };
 
@@ -193,7 +193,16 @@
 &kp Q              &kp W                &kp E            &kp R         &kp T      &none             &none              &kp Y            &kp U             &kp I             &kp O                 &kp P
 &hml LEFT_SHIFT A  &hml LEFT_CONTROL S  &hml LEFT_ALT D  &hml LGUI F   &kp G      &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp H            &hmr RIGHT_GUI J  &hmr RIGHT_ALT K  &hmr RIGHT_CONTROL L  &kp RIGHT_SHIFT
 &kp Z              &kp X                &kp C            &kp V         &kp B                                           &kp N            &kp M             &kp COMMA         &kp DOT               &none
-                                                         &lt 4 ESCAPE  &lt 3 TAB  &kp ENTER         &kp SPACE          &lt 2 BACKSPACE  &mo 4
+                                                         &lt 5 ESCAPE  &lt 4 TAB  &kp ENTER         &kp SPACE          &lt 3 BACKSPACE  &mo 5
+            >;
+        };
+
+        Gaming {
+            bindings = <
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none                &none  &none  &none  &none  &none
+                     &none  &none  &none  &none  &none  &mo 5
             >;
         };
 
@@ -217,7 +226,7 @@
 
         funct_nav {
             bindings = <
-&tog 1     &tog 7     &none     &none    &none            &none     &none    &none     &none     &kp PAGE_UP    &none      &none
+&tog 1     &tog 2     &none     &none    &none            &none     &none    &none     &none     &kp PAGE_UP    &none      &none
 &killscrn  &scrlscrn  &lstscrn  &nwscrn  &none            &zoomout  &zoomin  &kp LEFT  &kp DOWN  &kp UP_ARROW   &kp RIGHT  &none
 &none      &none      &none     &none    &kp PRINTSCREEN                     &none     &kp HOME  &kp PAGE_DOWN  &kp END    &none
                                 &trans   &trans           &trans    &trans   &trans    &trans
@@ -226,7 +235,7 @@
 
         system {
             bindings = <
-&tog 7  &none  &none  &none  &none  &none  &none  &none         &kp K_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &none
+&none   &none  &none  &none  &none  &none  &none  &none         &kp K_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &none
 &none   &none  &none  &none  &none  &none  &none  &none         &none       &none              &none            &soft_off
 &none   &none  &none  &none  &none                &out OUT_TOG  &bt BT_CLR  &bt BT_SEL 0       &bt BT_SEL 1     &bt BT_SEL 2
                       &none  &none  &none  &none  &none         &none
@@ -242,22 +251,14 @@
             >;
         };
 
-        Gaming {
-            bindings = <
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none                &none  &none  &none  &none  &none
-                     &none  &none  &none  &none  &none  &mo 4
-            >;
-        };
     };
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
         secret_layer {
-            if-layers = <3 4>;
-            then-layer = <5>;
+            if-layers = <4 5>;
+            then-layer = <6>;
         };
     };
 };
