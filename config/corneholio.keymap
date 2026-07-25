@@ -218,18 +218,18 @@
         funct_nav {
             bindings = <
 &none      &none      &none     &none    &none            &none     &none    &none     &none     &kp PAGE_UP    &none      &none
-&killscrn  &scrlscrn  &lstscrn  &nwscrn  &kp PRINTSCREEN  &zoomout  &zoomin  &kp LEFT  &kp DOWN  &kp UP_ARROW   &kp RIGHT  &none
-&none      &none      &none     &none    &none                               &none     &kp HOME  &kp PAGE_DOWN  &kp END    &none
+&killscrn  &scrlscrn  &lstscrn  &nwscrn  &none            &zoomout  &zoomin  &kp LEFT  &kp DOWN  &kp UP_ARROW   &kp RIGHT  &none
+&none      &none      &none     &none    &kp PRINTSCREEN                     &none     &kp HOME  &kp PAGE_DOWN  &kp END    &none
                                 &trans   &trans           &trans    &trans   &trans    &trans
             >;
         };
 
         system {
             bindings = <
-&none  &none  &none  &none  &none  &none  &none  &none         &kp K_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &tog 1
-&none  &none  &none  &none  &none  &none  &none  &none         &none       &none              &none            &soft_off
-&none  &none  &none  &none  &none                &out OUT_TOG  &bt BT_CLR  &bt BT_SEL 0       &bt BT_SEL 1     &bt BT_SEL 2
-                     &none  &none  &none  &none  &none         &none
+&tog 7  &none  &none  &none  &none  &none  &none  &none         &kp K_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &tog 1
+&none   &none  &none  &none  &none  &none  &none  &none         &none       &none              &none            &soft_off
+&none   &none  &none  &none  &none                &out OUT_TOG  &bt BT_CLR  &bt BT_SEL 0       &bt BT_SEL 1     &bt BT_SEL 2
+                      &none  &none  &none  &none  &none         &none
             >;
         };
 
@@ -242,7 +242,7 @@
             >;
         };
 
-        extra_2 {
+        Gaming {
             bindings = <
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
